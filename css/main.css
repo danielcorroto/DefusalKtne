@@ -1,0 +1,13 @@
+.top-separator {
+	padding-top: 30px;
+}
+
+.solution {
+	text-transform: uppercase;
+	
+	font-weight: bold;
+	font-size: 150%;
+	
+	letter-spacing: 5px;
+	padding: 0 10px;
+}
