@@ -26,17 +26,11 @@ for (var i=0; i<wires.length; i++) {
 }
 for (var i=0; i<wire_color.length; i++) {
 	for (var j=0; j<wire_color[i].length; j++) {
-		$(wire_color[i][j]).click(function() {
-			var id = this.id.substring(5,6);
-			var color = this.id.substring(7);
-			select_wire_color(id, color);
-		});
+		$(wire_color[i][j]).click(select_one_callback(wire_color[i], "btn-primary"));
 	}
 }
 for (var i=0; i<options.length; i++) {
-	$(options[i]).click(function() {
-		select_option(this.id);
-	});
+	$(options[i]).click(select_one_callback(options, "btn-primary"));
 }
 
 
@@ -45,12 +39,8 @@ for (var i=0; i<options.length; i++) {
 function select_wires(wire_id) {
 	console.log("Show wires " + wire_id);
 	// Cambia color del botón
-	for (var i=0; i<wires.length; i++) {
-		$(wires[i]).removeClass("btn-primary");
-		if (i+3 == wire_id) {
-			$(wires[i]).addClass("btn-primary");
-		}
-	}
+	select_one("#wires_" + wire_id, wires, "btn-primary");
+	
 	// Visualiza el cable
 	for (var i=0; i<wire.length; i++) {
 		if (i < wire_id) {
@@ -65,32 +55,6 @@ function select_wires(wire_id) {
 		$("#option_last_sn_digit").show();
 	} else {
 		$("#option_last_sn_digit").hide();
-	}
-}
-
-// Cambia el color del cable seleccionado
-// id es el identificador del cable, entre 1 y 6
-// color es el color del cable
-function select_wire_color(id, color) {
-	console.log("Selected wire color " + id + " " + color);
-	// Cambia el color del botón
-	for (var i=0; i<wire_color[id-1].length; i++) {
-		$(wire_color[id-1][i]).removeClass("btn-primary");
-		if (wire_color[id-1][i].indexOf(color) != -1) {
-			$(wire_color[id-1][i]).addClass("btn-primary");
-		}
-	}
-}
-
-// Cambia el color de la opción seleccionada
-function select_option(option_id) {
-	console.log("Selected option " + option_id)
-	// Cambia color del botón
-	for (var i=0; i<options.length; i++) {
-		$(options[i]).removeClass("btn-primary");
-		if (options[i] == "#" + option_id) {
-			$(options[i]).addClass("btn-primary");
-		}
 	}
 }
 
