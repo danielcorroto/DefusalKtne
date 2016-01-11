@@ -24,22 +24,15 @@ for (var i=0; i<wires.length; i++) {
 		select_wires(id);
 	});
 }
-for (var i=0; i<wire_color.length; i++) {
-	for (var j=0; j<wire_color[i].length; j++) {
-		$(wire_color[i][j]).click(select_one_callback(wire_color[i], "btn-primary"));
-	}
-}
-for (var i=0; i<options.length; i++) {
-	$(options[i]).click(select_one_callback(options, "btn-primary"));
-}
-
+set_button_callbacks(wire_color);
+set_button_callbacks([options]);
 
 // Cambia color del número de cables seleccionado y visualiza los cables correspondientes
 // wire_id es un número entre 3 y 6
 function select_wires(wire_id) {
 	console.log("Show wires " + wire_id);
 	// Cambia color del botón
-	select_one("#wires_" + wire_id, wires, "btn-primary");
+	select_one("#wires_" + wire_id, wires, ACTIVE_CLASS);
 	
 	// Visualiza el cable
 	for (var i=0; i<wire.length; i++) {
@@ -69,7 +62,7 @@ function check() {
 	
 	// Número de cables
 	for (var i=0; i<wires.length; i++) {
-		if ($(wires[i]).hasClass("btn-primary")) {
+		if ($(wires[i]).hasClass(ACTIVE_CLASS)) {
 			selected_wires = i+3;
 		}
 	}
@@ -77,7 +70,7 @@ function check() {
 	// Colores de los cables
 	for (var i=0; i<selected_wires; i++) {
 		for (var j=0; j<wire_color[i].length; j++) {
-			if ($(wire_color[i][j]).hasClass("btn-primary")) {
+			if ($(wire_color[i][j]).hasClass(ACTIVE_CLASS)) {
 				var color = wire_color[i][j].substring(8);
 				selected_colors.push(color);
 			}
@@ -86,7 +79,7 @@ function check() {
 	
 	// Si SN es impar
 	if (selected_wires > 3) {
-		selected_odd = $("#option_last_sn_digit_odd").hasClass("btn-primary");
+		selected_odd = $("#option_last_sn_digit_odd").hasClass(ACTIVE_CLASS);
 	}
 	
 	var cut = verify(selected_wires, selected_colors, selected_odd);
@@ -98,6 +91,7 @@ function check() {
 // size es el número de cables seleccionado
 // colors es un array de cables seleccionados
 // is_odd indica si el último dígito del número de serie es impar
+// Devuelve un texto con el resultado
 function verify(size, colors, is_odd) {
 	console.log("Verifying " + size + " " + colors + " " + is_odd);
 	

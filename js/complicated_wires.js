@@ -22,15 +22,11 @@ var show_option_has_parallel_port = [ ["#config_1_no", "#config_2_yes", "#config
 var show_option_has_batteries = [ ["#config_1_no", "#config_2_no", "#config_3_yes", "#config_4_yes"], ["#config_1_yes", "#config_2_no", "#config_4_yes"] ];
 
 // Onclick buttons
+set_button_callbacks(configs);
+set_button_callbacks(options);
 for (var i=0; i<configs.length; i++) {
 	for (var j=0; j<configs[i].length; j++) {
-		$(configs[i][j]).click(select_one_callback(configs[i], "btn-primary"));
 		$(configs[i][j]).click(function(){show_options()});
-	}
-}
-for (var i=0; i<options.length; i++) {
-	for (var j=0; j<options[i].length; j++) {
-		$(options[i][j]).click(select_one_callback(options[i], "btn-primary"));
 	}
 }
 
@@ -49,7 +45,7 @@ function show_option(options, selector) {
 	var show = false;
 	for (var i=0; i< options.length; i++) {
 		var j=0;
-		while ( $(options[i][j]).hasClass("btn-primary") ) {
+		while ( $(options[i][j]).hasClass(ACTIVE_CLASS) ) {
 			j++;
 		}
 		if (j == options[i].length) {
@@ -69,7 +65,7 @@ function check() {
 	var config = [];
 	for (var i=0; i<configs.length; i++) {
 		for (var j=0; j<configs[i].length; j++) {
-			if ($(configs[i][j]).hasClass("btn-primary")) {
+			if ($(configs[i][j]).hasClass(ACTIVE_CLASS)) {
 				config.push(j);
 			}
 		}
@@ -77,7 +73,7 @@ function check() {
 	
 	var option = [];
 	for (var i=0; i<options.length; i++) {
-		option.push($(options[i][1]).hasClass("btn-primary"));
+		option.push($(options[i][1]).hasClass(ACTIVE_CLASS));
 	}
 	
 	var cut = verify(config, option);
