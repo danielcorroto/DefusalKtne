@@ -1,0 +1,109 @@
+﻿<!doctype html>
+<html class="no-js" lang="">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>KTNE Defusal System - Morse code</title>
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<style>
+			body {
+				padding-top: 50px;
+				padding-bottom: 20px;
+			}
+		</style>
+		<link rel="stylesheet" href="css/bootstrap-theme.min.css">
+		<link rel="stylesheet" href="css/main.css">
+
+		<script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+	</head>
+	<body>
+	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="index.html">KTNE Defusal System</a>
+			</div>
+			<div id="navbar" class="navbar-collapse collapse">
+				<ul class="nav navbar-nav">
+					<li><a href="index.html">Inicio</a></li>
+					<li><a href="wires.html">Wires</a></li>
+					<li><a href="button.html">Button</a></li>
+					<li><a href="keypads.html">Keypads (icons)</a></li>
+					<li><a href="simon_says.html">Simon says</a></li>
+					<li><a href="whos_on_first.html">Who's on first (words)</a></li>
+					<li><a href="memory.html">Memory</a></li>
+					<li class="active"><a href="#">Morse code</a></li>
+					<li><a href="complicated_wires.html">Complicated wires</a></li>
+					<li><a href="wire_sequences.html">Wire sequences</a></li>
+					<li><a href="mazes.html">Mazes</a></li>
+					<li><a href="passwords.html">Passwords</a></li>
+					<li><a href="venging_gas.html">Venting gas</a></li>
+					<li><a href="capacitor-discharge.html">Capacitor discharge</a></li>
+					<li><a href="knobs.html">Knobs</a></li>
+					<li><a href="appendix.html">Appendix</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	
+	<div class="container top-separator">
+		<div class="row">
+			<div class="col-xs-12" align="center">
+				Code: <span class="solution" id="output"></span>
+			</div>
+		</div>
+		<div id="frequency_row" class="row" style="display:none">
+			<div class="col-xs-12" align="center">
+				Frequency: <span class="solution" id="frequency"></span> Mhz
+			</div>
+		</div>
+	</div>
+	
+	<div class="container top-separator">
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">Morse</h3>
+					</div>
+					<div class="panel-body">
+						<div class="btn-group btn-group-justified" role="group" aria-label="number-of-buttons">
+							<a id="code_dot" role="button" class="btn btn-default">&#x25cf;</a>
+							<a id="code_dash" role="button" class="btn btn-default">&mdash;</a>
+							<a id="code_space" role="button" class="btn btn-default">&nbsp;</a>
+							<a id="code_back" role="button" class="btn btn-default">&#x2190;</a>
+							<a id="code_reset" role="button" class="btn btn-danger">RESET</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-8 col-xs-offset-2">
+				<div class="btn-group btn-group-justified" role="group" aria-label="check">
+					<a role="button" class="btn btn-success" onclick="check()">CHECK</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<script src="js/vendor/jquery-1.11.2.min.js"></script>
+
+	<script src="js/vendor/bootstrap.min.js"></script>
+
+	<script src="js/common.js"></script>
+	<script src="js/morse_code.js"></script>
+	</body>
+</html>
