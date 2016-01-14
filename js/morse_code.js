@@ -38,9 +38,14 @@ $("#code_reset").click(function() {
 // Recoge los datos seleccionados y realiza la comprobación
 // Escribe la frecuencia a sintonizar
 function check() {
-	var frequency = verify(morse_code);
-	$("#frequency").text(frequency);
-	$("#frequency_row").show();
+	var frequencies = verify(morse_code);
+	
+	if (frequencies.length == 1) {
+		$("#frequency").text(frequencies);
+		$("#frequency_row").show();
+	} else {
+		$("#frequency_row").hide();
+	}
 }
 
 // Realiza la comprobación
@@ -64,9 +69,12 @@ function verify(code) {
 	{code:"···- · -·-· - --- ·-·", word:"vector", sol:3595}, 
 	{code:"-··· · ·- - ···", word:"beats", sol:3600}];
 	
+	var res = [];
 	for (var i=0; i<morse_array.length; i++) {
-		if (morse_array[i]["code"] == code) {
-			return morse_array[i]["sol"];
+		if (morse_array[i]["code"].indexOf(code) != -1) {
+			res.push(morse_array[i]["sol"]);
 		}
 	}
+	
+	return res;
 }
