@@ -19,6 +19,7 @@ function add_code_refresh(code) {
 		}
 		morse_code += code;
 		display_code();
+		check();
 	}
 }
 
@@ -28,11 +29,13 @@ $("#code_space").click(add_code_refresh(" "));
 $("#code_back").click(function() {
 	morse_code = morse_code.substring(0, morse_code.length - 1);
 	display_code();
+	check();
 });
 $("#code_reset").click(function() {
 	morse_code = "";
 	display_code();
 	$("#frequency_row").hide();
+	check();
 });
 
 // Recoge los datos seleccionados y realiza la comprobación
@@ -43,8 +46,18 @@ function check() {
 	if (frequencies.length == 1) {
 		$("#frequency").text(frequencies);
 		$("#frequency_row").show();
+		
+		$("#frequencies_options_row").hide();
+	} else if (frequencies.length == 0) {
+		$("#frequencies_options_row").hide();
 	} else {
 		$("#frequency_row").hide();
+		
+		$("#frequencies_options").text("");
+		for (var i=0; i<frequencies.length; i++) {
+			$("#frequencies_options").append(frequencies[i] + ", ");
+		}
+		$("#frequencies_options_row").show();
 	}
 }
 
@@ -52,6 +65,10 @@ function check() {
 // code es el código morse
 // Devuelve el valor del resultado
 function verify(code) {
+	if (code == "") {
+		return [];
+	}
+
 	var morse_array = [{code:"··· ···· · ·-·· ·-··", word:"shell", sol:3505}, 
 	{code:"···· ·- ·-·· ·-·· ···", word:"halls", sol:3515}, 
 	{code:"··· ·-·· ·· -·-· -·-", word:"slick", sol:3522}, 
@@ -71,7 +88,7 @@ function verify(code) {
 	
 	var res = [];
 	for (var i=0; i<morse_array.length; i++) {
-		if (morse_array[i]["code"].indexOf(code) != -1) {
+		if (morse_array[i]["code"].indexOf(code) == 0) {
 			res.push(morse_array[i]["sol"]);
 		}
 	}

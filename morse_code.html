@@ -61,9 +61,9 @@
 				Code: <span class="solution" id="output"></span>
 			</div>
 		</div>
-		<div id="frequency_row" class="row" style="display:none">
+		<div class="row">
 			<div class="col-xs-12" align="center">
-				Frequency: <span class="solution" id="frequency"></span> Mhz
+				Frequency: <span class="solution" id="frequency">??</span> MHz
 			</div>
 		</div>
 	</div>
@@ -79,7 +79,7 @@
 						<div class="btn-group btn-group-justified" role="group" aria-label="number-of-buttons">
 							<a id="code_dot" role="button" class="btn btn-default">&#x25cf;</a>
 							<a id="code_dash" role="button" class="btn btn-default">&mdash;</a>
-							<a id="code_space" role="button" class="btn btn-default">&nbsp;</a>
+							<a id="code_space" role="button" class="btn btn-default">(space)</a>
 							<a id="code_back" role="button" class="btn btn-default">&#x2190;</a>
 							<a id="code_reset" role="button" class="btn btn-danger">RESET</a>
 						</div>
@@ -89,13 +89,9 @@
 		</div>
 	</div>
 	
-	<div class="container">
-		<div class="row">
-			<div class="col-xs-8 col-xs-offset-2">
-				<div class="btn-group btn-group-justified" role="group" aria-label="check">
-					<a role="button" class="btn btn-success" onclick="check()">CHECK</a>
-				</div>
-			</div>
+	<div id="frequencies_options_row" class="container top-separator" style="display:none">
+		<div class="well">
+			Frequency options: <span id="frequencies_options" class="solution"></span>
 		</div>
 	</div>
 	
