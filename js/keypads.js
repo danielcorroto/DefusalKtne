@@ -1,4 +1,4 @@
-﻿$("div.thumbnail").click(function(){
+﻿$("div.thumbnail.selectable").click(function(){
 	if ($(this).hasClass("selected")) {
 		$(this).removeClass("selected");
 	} else {
@@ -18,13 +18,14 @@ function check() {
 	
 	if (ids.length == 4) {
 		var res = verify(ids);
-		
-		var sol_thumbs = $("#solution img");
-		for (var i=0; i<res.length; i++) {
-			var elem = $(sol_thumbs).get(i);
-			$(elem).attr("src","img/"+res[i]+".png");
+		if (res.length == 4) {
+			var sol_thumbs = $("#solution img");
+			for (var i=0; i<res.length; i++) {
+				var elem = $(sol_thumbs).get(i);
+				$(elem).attr("src","img/"+res[i]+".png");
+			}
+			$("#solution").show();
 		}
-		$("#solution").show();
 	} else {
 		$("#solution").hide();
 	}
