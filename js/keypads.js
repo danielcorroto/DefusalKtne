@@ -17,9 +17,16 @@ function check() {
 	}
 	
 	if (ids.length == 4) {
-		verify(ids);
-	} else {
+		var res = verify(ids);
 		
+		var sol_thumbs = $("#solution img");
+		for (var i=0; i<res.length; i++) {
+			var elem = $(sol_thumbs).get(i);
+			$(elem).attr("src","img/"+res[i]+".png");
+		}
+		$("#solution").show();
+	} else {
+		$("#solution").hide();
 	}
 }
 
@@ -35,7 +42,18 @@ function verify(ids) {
 	["keypads_psi","keypads_tewithring","keypads_yat","keypads_dottedlunatesigma","keypads_pilcrow","keypads_ksi","keypads_whitestar"],
 	["keypads_be","keypads_ediaeresis","keypads_thousand","keypads_ae","keypads_psi","keypads_yot","keypads_omega"]
 	];
-	var res = [];
 	
-	return res;
+	for (var i=0; i<ordered.length; i++) {
+		var res = [];
+		for (var j=0; j<ordered[i].length; j++) {
+			if ($.inArray(ordered[i][j], ids) != -1) {
+				res.push(ordered[i][j]);
+			}
+		}
+		if (res.length == 4) {
+			return res;
+		}
+	}
+	
+	return [];
 }
