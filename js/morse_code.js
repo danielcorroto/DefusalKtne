@@ -44,20 +44,11 @@ function check() {
 	var frequencies = verify(morse_code);
 	
 	if (frequencies.length == 1) {
-		$("#frequency").text(frequencies);
-		$("#frequency_row").show();
-		
-		$("#frequencies_options_row").hide();
+		$("#frequency").text(frequencies[0]);
 	} else if (frequencies.length == 0) {
-		$("#frequencies_options_row").hide();
+		$("#frequency").text("ERROR");
 	} else {
-		$("#frequency_row").hide();
-		
-		$("#frequencies_options").text("");
-		for (var i=0; i<frequencies.length; i++) {
-			$("#frequencies_options").append(frequencies[i] + ", ");
-		}
-		$("#frequencies_options_row").show();
+		$("#frequency").text("??");
 	}
 }
 
