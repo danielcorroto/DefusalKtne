@@ -123,6 +123,21 @@ function verify(circle1, circle2, start, goal) {
 	
 	find_path(maze, path, pos_goal);
 	console.log(path);
+	
+	var sol = "";
+	for (var i=1; i<path.length; i++) {
+		if (path[i] - path[i-1] == -6) {
+			sol += "\u21E7 "; // arriba
+		} else if (path[i] - path[i-1] == 1) {
+			sol += "\u21E8 "; // derecha
+		} else if (path[i] - path[i-1] == 6) {
+			sol += "\u21E9 "; // abajo
+		} else if (path[i] - path[i-1] == -1) {
+			sol += "\u21E6 "; // izquierda
+		}
+	}
+	
+	$("#path").text(sol);
 }
 
 function find_maze(circle1, circle2, pos1, pos2) {
