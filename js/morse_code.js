@@ -45,10 +45,10 @@ function check() {
 	
 	if (frequencies.length == 1) {
 		$("#frequency").text(frequencies[0]);
-	} else if (frequencies.length == 0) {
-		$("#frequency").text("ERROR");
-	} else {
+	} else if (morse_code == "" || frequencies.length > 0) {
 		$("#frequency").text("??");
+	} else {
+		$("#frequency").text("ERROR");
 	}
 }
 
