@@ -17,6 +17,10 @@ function check() {
 	var start = get_positions(positions, 2,3);
 	var goal = get_positions(positions, 4,5);
 	
+	if (circle[0] == "Row" || circle[1] == "Column" || start[0] == "Row" || start[1] == "Column" || goal[0] == "Row" || goal[1] == "Column") {
+		return;
+	}
+	
 	var path = verify(circle, start, goal);
 	
 	
