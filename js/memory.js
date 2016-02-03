@@ -60,6 +60,7 @@ for (var i=0; i<stages.length; i++) {
 			}
 			if (selected_display && selected_position && selected_label) {
 				$(stage_section[current_stage]).show();
+				window.scrollTo(0,document.body.scrollHeight);
 			}
 		});
 	}
@@ -74,6 +75,7 @@ function check(pressed) {
 	var positions = [];
 	var labels = [];
 	
+	// Obtener botones marcados
 	for (var i=0; i<selected.length; i++) {
 		var item_stage = selected[i].substring(6,7);
 		var item = selected[i].substring(selected[i].length - 1);
@@ -86,10 +88,28 @@ function check(pressed) {
 		}
 	}
 	
+	// Calcular resultado
 	var res = verify(stage, displays, positions, labels);
 	console.log(res);
-	$(solutions[stage-1]).text(res.type + " " + res.id);
-	// TODO marcar solución en botón
+	
+	// Escribir resultado
+	var res_text;
+	if (res["type"] == LABEL) {
+		res_text = "label " + res["id"];
+		
+		$("#stage_"+stage+"_label_pressed_"+res["id"]).click();
+	} else if (res["type"] == POSITION) {
+		switch (res["id"]) {
+			case "1": res_text = "first"; break;
+			case "2": res_text = "second"; break;
+			case "3": res_text = "third"; break;
+			case "4": res_text = "fourth"; break;
+		}
+		res_text += " position";
+		
+		$("#stage_"+stage+"_position_pressed_"+res["id"]).click();
+	}
+	$(solutions[stage-1]).text(res_text);
 }
 
 // Realiza la comprobación
@@ -102,16 +122,16 @@ function verify(stage, displays, positions, labels) {
 	var result = [];
 	if (stage == 1) {
 		// stage 1
-		result = [{type:POSITION, id:2}, {type:POSITION, id:2}, {type:POSITION, id:3}, {type:POSITION, id:4}];
+		result = [{type:POSITION, id:"2"}, {type:POSITION, id:"2"}, {type:POSITION, id:"3"}, {type:POSITION, id:"4"}];
 	} else if (stage == 2) {
 		// stage 2
-		result = [{type:LABEL, id:4}, {type:POSITION, id:positions[0]}, {type:POSITION, id:1}, {type:POSITION, id:positions[0]}];
+		result = [{type:LABEL, id:"4"}, {type:POSITION, id:positions[0]}, {type:POSITION, id:"1"}, {type:POSITION, id:positions[0]}];
 	} else if (stage == 3) {
 		// stage 3
-		result = [{type:LABEL, id:labels[1]}, {type:LABEL, id:labels[0]}, {type:POSITION, id:3}, {type:LABEL, id:4}];
+		result = [{type:LABEL, id:labels[1]}, {type:LABEL, id:labels[0]}, {type:POSITION, id:"3"}, {type:LABEL, id:"4"}];
 	} else if (stage == 4) {
 		// stage 4
-		result = [{type:POSITION, id:positions[0]}, {type:POSITION, id:1}, {type:POSITION, id:positions[1]}, {type:POSITION, id:positions[1]}];
+		result = [{type:POSITION, id:positions[0]}, {type:POSITION, id:"1"}, {type:POSITION, id:positions[1]}, {type:POSITION, id:positions[1]}];
 	} else if (stage == 5) {
 		// stage 5
 		result = [{type:LABEL, id:labels[0]}, {type:LABEL, id:labels[1]}, {type:LABEL, id:labels[2]}, {type:LABEL, id:labels[3]}];
