@@ -38,7 +38,7 @@ function verify(ids) {
 	var ordered = [
 	["keypads_archaickoppa","keypads_yus","keypads_lambda","keypads_koppa","keypads_iotifiedbigyus","keypads_kai","keypads_reverseddottedlunatesigma"],
 	["keypads_ediaeresis","keypads_archaickoppa","keypads_reverseddottedlunatesigma","keypads_ohook","keypads_whitestar","keypads_kai","keypads_interrogationreversed"],
-	["keypads_copyright","keypads_800","keypads_ohook","keypads_zhje","keypads_komidzje","keypads_lambda","keypads_whitestar"],
+	["keypads_copyright","keypads_smallomegawithtitlo","keypads_ohook","keypads_zhje","keypads_komidzje","keypads_lambda","keypads_whitestar"],
 	["keypads_be","keypads_pilcrow","keypads_yat","keypads_iotifiedbigyus","keypads_zhje","keypads_interrogationreversed","keypads_tewithring"],
 	["keypads_psi","keypads_tewithring","keypads_yat","keypads_dottedlunatesigma","keypads_pilcrow","keypads_ksi","keypads_whitestar"],
 	["keypads_be","keypads_ediaeresis","keypads_thousand","keypads_ae","keypads_psi","keypads_yot","keypads_omega"]
