@@ -86,8 +86,8 @@ function check() {
 }
 
 // Realiza la comprobación
-// config es un array de 1/0 según la configuración activa o no
-// opts es un array de true/false según las opciones activas o no
+// config es un array de 1/0 según la configuración activa o no: [red color, blue color, has star, led on]
+// opts es un array de true/false según las opciones activas o no: [is even, has parallel port, has bateries]
 // Devuelve el resultado booleano
 function verify(config, opts) {
 	var cut_wire = [cut(), dont(), cut(), has_batteries(opts), is_even(opts), has_parallel(opts), dont(), has_parallel(opts), is_even(opts), has_batteries(opts), cut(), has_batteries(opts), is_even(opts), is_even(opts), has_parallel(opts), dont()];
