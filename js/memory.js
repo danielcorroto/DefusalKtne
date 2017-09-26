@@ -134,7 +134,7 @@ function verify(stage, displays, positions, labels) {
 		result = [{type:POSITION, id:positions[0]}, {type:POSITION, id:"1"}, {type:POSITION, id:positions[1]}, {type:POSITION, id:positions[1]}];
 	} else if (stage == 5) {
 		// stage 5
-		result = [{type:LABEL, id:labels[0]}, {type:LABEL, id:labels[1]}, {type:LABEL, id:labels[2]}, {type:LABEL, id:labels[3]}];
+		result = [{type:LABEL, id:labels[0]}, {type:LABEL, id:labels[1]}, {type:LABEL, id:labels[3]}, {type:LABEL, id:labels[2]}];
 	}
 	return result[displays[stage-1]-1];
 }
