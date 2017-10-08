@@ -1,0 +1,197 @@
+﻿<!doctype html>
+<html class="no-js" lang="">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>KTNE Defusal System - Button</title>
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<style>
+			body {
+				padding-top: 50px;
+				padding-bottom: 20px;
+			}
+		</style>
+		<link rel="stylesheet" href="css/bootstrap-theme.min.css">
+		<link rel="stylesheet" href="css/main.css">
+
+		<script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+	</head>
+	<body>
+	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="index.html">KTNE Defusal System</a>
+			</div>
+			<div id="navbar" class="navbar-collapse collapse">
+				<ul class="nav navbar-nav">
+					<li><a href="index.html">Inicio</a></li>
+					<li class="active"><a href="#">Wires</a></li>
+					<li><a href="button.html">Button</a></li>
+					<li><a href="keypads.html">Keypads (icons)</a></li>
+					<li><a href="simon_says.html">Simon says</a></li>
+					<li><a href="whos_on_first.html">Who's on first (words)</a></li>
+					<li><a href="memory.html">Memory</a></li>
+					<li><a href="morse_code.html">Morse code</a></li>
+					<li><a href="complicated_wires.html">Complicated wires</a></li>
+					<li><a href="wire_sequences.html">Wire sequences</a></li>
+					<li><a href="mazes.html">Mazes</a></li>
+					<li><a href="passwords.html">Passwords</a></li>
+					<li><a href="venging_gas.html">Venting gas</a></li>
+					<li><a href="capacitor-discharge.html">Capacitor discharge</a></li>
+					<li><a href="knobs.html">Knobs</a></li>
+					<li><a href="appendix.html">Appendix</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	
+	<div class="container top-separator">
+		<div class="row">
+			<div class="col-xs-12" align="center">
+				<span class="solution" id="solution">??</span>
+			</div>
+		</div>
+	</div>
+	
+	<div id="color" class="container top-separator">
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">Color</h3>
+					</div>
+					<div class="panel-body">
+						<div class="btn-group btn-group-justified" role="group" aria-label="color">
+							<a id="color_blue" role="button" class="btn btn-default">Blue</a>
+							<a id="color_red" role="button" class="btn btn-default">Red</a>
+							<a id="color_white" role="button" class="btn btn-default">White</a>
+							<a id="color_yellow" role="button" class="btn btn-default">Yellow</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div id="label_" class="container">
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">Label</h3>
+					</div>
+					<div class="panel-body">
+						<div class="btn-group btn-group-justified" role="group" aria-label="label">
+							<a id="label_abort" role="button" class="btn btn-default">Abort</a>
+							<a id="label_detonate" role="button" class="btn btn-default">Detonate</a>
+							<a id="label_hold" role="button" class="btn btn-default">Hold</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div id="batteries" class="container">
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">Batteries</h3>
+					</div>
+					<div class="panel-body">
+						<div class="btn-group btn-group-justified" role="group" aria-label="batteries">
+							<a id="batteries_0_1" role="button" class="btn btn-default">0 or 1</a>
+							<a id="batteries_2" role="button" class="btn btn-default">2</a>
+							<a id="batteries_3" role="button" class="btn btn-default">3 or more</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div id="car" class="container" style="display:none">
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">Lit indicator with label CAR</h3>
+					</div>
+					<div class="panel-body">
+						<div class="btn-group btn-group-justified" role="group" aria-label="car">
+							<a id="car_yes" role="button" class="btn btn-default">YES</a>
+							<a id="car_no" role="button" class="btn btn-default">NO</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div id="frk" class="container" style="display:none">
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">Lit indicator with label FRK</h3>
+					</div>
+					<div class="panel-body">
+						<div class="btn-group btn-group-justified" role="group" aria-label="frk">
+							<a id="frk_yes" role="button" class="btn btn-default">YES</a>
+							<a id="frk_no" role="button" class="btn btn-default">NO</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div id="strip" class="container" style="display:none">
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">Strip</h3>
+					</div>
+					<div class="panel-body">
+						<div class="btn-group btn-group-justified" role="group" aria-label="strip">
+							<a id="strip_blue" role="button" class="btn btn-default">Blue</a>
+							<a id="strip_white" role="button" class="btn btn-default">White</a>
+							<a id="strip_yellow" role="button" class="btn btn-default">Yellow</a>
+							<a id="strip_other" role="button" class="btn btn-default">Other</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-8 col-xs-offset-2">
+				<div class="btn-group btn-group-justified" role="group" aria-label="check">
+					<a role="button" class="btn btn-success" onclick="check()">CHECK</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<script src="js/vendor/jquery-1.11.2.min.js"></script>
+
+	<script src="js/vendor/bootstrap.min.js"></script>
+
+	<script src="js/common.js"></script>
+	<script src="js/button.js"></script>
+	</body>
+</html>
